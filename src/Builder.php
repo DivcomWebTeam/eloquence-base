@@ -405,7 +405,7 @@ class Builder extends HookableBuilder
      */
     protected function isWildcard($word)
     {
-        return Str::endsWith($word, '*') && starts_with($word, '*');
+        return Str::endsWith($word, '*') && Str::startsWith($word, '*');
     }
 
     /**
