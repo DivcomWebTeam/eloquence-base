@@ -9,6 +9,7 @@ use Sofa\Eloquence\Searchable\ColumnCollection;
 use Sofa\Eloquence\Contracts\Relations\JoinerFactory;
 use Sofa\Eloquence\Contracts\Searchable\ParserFactory;
 use Illuminate\Database\Query\Grammars\PostgresGrammar;
+use Illuminate\Support\Str;
 use Sofa\Eloquence\Searchable\Subquery as SearchableSubquery;
 
 /**
@@ -393,7 +394,7 @@ class Builder extends HookableBuilder
      */
     protected function isLeftMatching($word)
     {
-        return ends_with($word, '*');
+        return Str::endsWith($word, '*');
     }
 
     /**
@@ -404,7 +405,7 @@ class Builder extends HookableBuilder
      */
     protected function isWildcard($word)
     {
-        return ends_with($word, '*') && starts_with($word, '*');
+        return Str::endsWith($word, '*') && starts_with($word, '*');
     }
 
     /**
